@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOTP Generator</title>
+    <style>
+        .popup {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            opacity: 0;
+            transition: all 0.5s ease-in;
+            pointer-events: none;
+        }
+
+        .popup.show {
+            opacity: 1;
+        }
+
+        svg {
+            transform: rotate(-90deg);
+        }
+
+        circle {
+            fill: none;
+            stroke-width: 12;
+        }
+
+        .progress-circle {
+            stroke-dasharray: 339.12;
+            stroke-dashoffset: 339.12;
+            transition: stroke-dashoffset 1s linear;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-800 h-screen flex items-center justify-center">
+    <div class="text-white text-center">
+        <h1 class="text-5xl mb-10 tracking-wider">TOTP Generator</h1>
+        <div class="mb-10">
+            <input type="text" id="secret" name="secret" required placeholder="Enter secret"
+                class="bg-gray-700 shadow-lg text-white font-mono text-center h-14 w-full rounded-lg tracking-widest border-transparent focus:outline-none focus:ring focus:ring-teal-400/50 text-lg">
+        </div>
+        <div id="result" class="text-4xl text-teal-500 font-bold tracking-widest h-1 hover:cursor-pointer"></div>
+        <!-- Countdown circle -->
+        <div class="flex justify-center items-center relative mt-20">
+            <svg width="120" height="120">
+                <circle class="background-circle" cx="60" cy="60" r="54" stroke="#4a5568" />
+                <circle class="progress-circle" cx="60" cy="60" r="54" stroke="#14b8a6" />
+            </svg>
+            <span id="countdown" class="text-teal-500 text-3xl absolute flex items-center justify-center"></span>
+        </div>
+    </div>
+
+    <!-- Pop-up for "Copied!" -->
+    <div id="popup" class="popup">Copied!</div>
+    <script src="dom.js"></script>
+</body>
+
+</html>
