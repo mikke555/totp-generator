@@ -2,6 +2,9 @@
 
 Time-based one-time password (TOTP) generator 
 
+### Demo
+
+https://totp-generator-f2l1.onrender.com/
 
 ### Installation
 
