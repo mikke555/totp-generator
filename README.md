@@ -4,7 +4,7 @@ Time-based one-time password (TOTP) generator
 
 ### Demo
 
-https://totp-generator-f2l1.onrender.com/
+https://totp-generator.fly.dev/
 
 ### Installation
 
